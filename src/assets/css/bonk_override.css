@@ -1,0 +1,94 @@
+html, body {
+	background: #0000 linear-gradient(90deg,#fc8e03 0,#ffd302) 0 0 no-repeat padding-box;
+	font-size: 20px;
+	height: 100%;
+}
+
+
+
+nav.navbar {
+background: transparent !important;
+}
+
+
+h1 {
+	font-size: 4rem;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 3rem;
+	text-transform: uppercase;
+}
+
+h3 {
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
+h4 {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+}
+
+h5 {
+	font-size: 1.2rem;
+}
+
+input.form-control {
+	text-align: center;
+	background: transparent;
+	border: 1px solid white;
+	color: white;
+	transition: all 0.3s ease-in-out;
+}
+
+input.form-control:hover, input.form-control:focus {
+	transform: scale(1.1);
+}
+
+input.form-control:focus {
+	background: transparent;
+	border: 1px solid white;
+	color: white
+}
+
+input.form-control::placeholder {
+	text-align: center;
+	color: white
+}
+
+.btn-primary:disabled {
+	background: gray;
+	border-color: gray;
+}
+
+.btn-primary {
+	background: rgb(255, 91, 1);
+	color: white;
+	border: 3px solid white;
+	transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:focus, .btn-primary:active:focus {
+	background: rgb(255, 91, 1);
+	color: white;
+	border: 3px solid white;
+}
+
+.btn-primary:hover {
+	background: rgb(255, 91, 1);
+	border: 3px solid white;
+	transform: scale(1.2);
+}
+
+.btn-primary:focus,
+.btn-primary:active:focus {
+	border-color: rgba(255, 255, 255, 0.6);
+	box-shadow: 0 0 0.15rem 0.25rem rgba(255, 255, 255, 0.2);
+}
+
+.card {
+	border: 3px solid white;
+	background: #0000 linear-gradient(180deg,#ff5c01 0,#fc8e03) 0 0 no-repeat padding-box;
+}

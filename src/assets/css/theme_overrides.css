@@ -1,0 +1,234 @@
+html,
+body,
+code {
+	--backgroundPrimary: 0, 0, 0 !important;
+	background: rgb(var(--backgroundPrimary));
+}
+
+h1 {
+	font-size: 1.5rem !important;
+	font-weight: 900 !important;
+}
+h2 {
+	font-size: 1.2rem !important;
+}
+
+body * {
+	font-size: var(--fontSM);
+	font-family: Poppins, sans-serif;
+	color: rgb(var(--contentPrimary));
+}
+
+.card {
+	border-radius: calc(var(--rounded) * 1.5) !important;
+	border: 1px solid rgb(var(--borderSecondary)) !important;
+}
+
+.container.view {
+	padding-top: 25px !important;
+}
+
+.container.view > h1 {
+	margin-bottom: 25px !important;
+}
+
+.picker .selector {
+	position: absolute;
+	left: 0;
+	top: 25%;
+	z-index: 2;
+}
+
+.green {
+	fill: var(--bs-success);
+	color: var(--bs-success);
+}
+
+.red {
+	fill: var(--bs-danger);
+	color: var(--bs-danger);
+}
+
+.swap-toggle svg:hover {
+	color: greenyellow;
+	fill: greenyellow;
+	cursor: pointer;
+}
+
+.toast-container .toast {
+	border: 2px solid white;
+	box-shadow: none;
+	background-color: black;
+	opacity: 1;
+}
+
+.toast .toast-progress {
+	background-color: white;
+	opacity: 0.4;
+	height: 2px;
+}
+
+.toast.toast-success {
+	border-color: var(--bs-success);
+	background-color: black;
+	/*background-color: rgba(25, 135, 84, 0.6);*/
+	transition: background-color 0.3s linear;
+}
+
+.toast.toast-success .toast-title {
+	color: var(--bs-success);
+}
+
+.toast.toast-success .toast-progress {
+	opacity: 1;
+	height: 4px;
+	background-color: var(--bs-success);
+}
+
+.toast.toast-success:hover {
+	background-color: rgba(25, 135, 84, 0.8);
+}
+
+.toast.toast-error {
+	border-color: var(--bs-danger);
+	background-color: black;
+	/*background-color: rgba(220, 53, 69, 0.6);*/
+	transition: background-color 0.3s linear;
+}
+
+.toast.toast-error .toast-title {
+	color: var(--bs-danger);
+}
+
+.toast.toast-error .toast-progress {
+	opacity: 1;
+	height: 4px;
+	background-color: var(--bs-danger);
+}
+
+.toast.toast-error:hover {
+	/*background-color: rgba(220, 53, 69, 0.8);*/
+}
+
+tbody tr {
+	transition: background-color 0.2s linear;
+}
+
+tbody tr:hover {
+	background: var(--bs-dark);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	font-weight: bold;
+}
+
+.nft-preview-small {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 48px;
+	width: 48px;
+	border-radius: 4px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.transaction-status-modal {
+	/*background: rgba(0, 0, 0, 0.8);*/
+	background: transparent;
+	pointer-events: none;
+	opacity: 1;
+	position: fixed;
+	bottom: 3%;
+
+	z-index: 10;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.transaction-status-modal-fixed {
+	opacity: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+
+	z-index: 10;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	animation-name: darken;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.fee-manager-status-modal {
+	pointer-events: none;
+	opacity: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	animation-name: darken;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.router-link-active:not(.navbar-brand) {
+	transition: all 200ms linear;
+	text-decoration: underline;
+	text-underline-offset: 0.4em;
+	color: white !important;
+}
+
+.router-link-active:focus {
+	text-underline-offset: 0.3em;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition-duration: 0.3s;
+	transition-property: opacity;
+	transition-timing-function: ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}
+
+@keyframes darken {
+	0% {
+		background: transparent;
+	}
+	100% {
+		background: rgba(0, 0, 0, 0.8);
+	}
+}
+
+.img .token-img {
+	border-radius: 7% !important;
+}
+
+sup svg.fa-star {
+	color: var(--bs-primary);
+}
+
+
+.swv-button.btn-primary {
+	border: 1px solid white;
+	background: rgba(255,255,255,0.2);
+}

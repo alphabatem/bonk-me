@@ -1,0 +1,32 @@
+.swv-modal-wrapper, .swv-dropdown-list {
+	background: black;
+	border: 2px solid white;
+	border-radius: 0;
+}
+
+.swv-dropdown-list li {
+	font-size: 22px;
+}
+
+.swv-modal-list .swv-button {
+	line-height: 50px;
+	font-size: 32px;
+}
+
+.swv-modal-list li {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	transition: background-color 0.2s linear;
+}
+
+.swv-dropdown-list-item {
+	border-radius: 0;
+}
+
+.swv-modal-list li:hover, .swv-dropdown-list-item:not([disabled]):hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.swv-button:not([disabled]):hover {
+	background: rgba(255, 255, 255, 0.2)
+}

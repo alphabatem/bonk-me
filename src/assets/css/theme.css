@@ -1,0 +1,519 @@
+html,
+body,
+code {
+  background: black;
+  color: white;
+  /*font-family: 'VT323', monospace;*/
+  /*font-size: 22px;*/
+  font-size: 16px;
+  font-family: "JetBrains Mono", monospace;
+  color-scheme: dark;
+}
+
+h1,
+h2,
+h3,
+h4,
+.navbar-brand,
+input,
+code,
+select {
+  font-family: "VT323", monospace;
+  /*font-size: 22px;*/
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  border: none;
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  transition: transform 0.3s linear;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+  transform: rotate(180deg);
+}
+
+h1,
+h2,
+h3,
+.form-control {
+  /* letter-spacing: 1px; */
+}
+
+.grey {
+  color: gray;
+}
+
+tbody tr,
+thead tr {
+  color: white;
+}
+
+h1,
+h2 {
+  font-weight: bold;
+}
+
+.form-control,
+.card,
+code {
+  transition: all 0.3s linear;
+  border-radius: 0;
+  border-width: 3px;
+}
+
+.btn.btn-sm {
+  font-weight: normal;
+  line-height: 1;
+  padding: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.btn.btn-sm.quick-btn {
+  font-weight: normal;
+  padding: 0.25rem;
+  line-height: 0.5;
+}
+
+.form-control {
+  background: var(--bs-dark);
+  color: white;
+}
+
+input.form-control:disabled,
+input.form-control:read-only:not([type="file"]) {
+  background: var(--bs-dark);
+  color: gray;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-control:active,
+.form-control:focus {
+  background: black;
+  box-shadow: none;
+  color: white;
+}
+
+tr {
+  vertical-align: middle;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* .btn {
+	font-weight: bold;
+	line-height: 2;
+	font-size: 24px;
+	padding-top: 0;
+	padding-bottom: 0;
+	letter-spacing: 0.1rem;
+	border-width: 2px;
+} */
+
+.btn:hover {
+  box-shadow: 0 0 0.15rem 0.15rem rgba(255, 255, 255, 0.2);
+}
+
+.btn:focus:active {
+  box-shadow: 0 0 0.15rem 0.25rem rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary {
+  background-color: rgba(13, 110, 253, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: rgba(13, 110, 253, 0.4);
+}
+
+.btn-primary:focus,
+.btn-primary:active:focus {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0.15rem 0.25rem rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline-light:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.swv-button-trigger {
+  background: var(--swv-button-background-color);
+}
+
+.form-control,
+.card {
+  border: 1px solid #ffffff69;
+}
+
+.card {
+  background: black;
+}
+
+.card-body {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+code {
+  color: white;
+  /*font-size: 0.8rem;*/
+  background: var(--bs-dark);
+  padding: 0.2rem;
+}
+
+code:hover {
+  background: var(--bs-gray-dark);
+}
+
+.xdanger {
+  background: red;
+}
+
+.text-danger {
+  color: darkred;
+}
+
+.danger {
+  background: darkred;
+}
+
+.warn {
+  background: darkorange;
+}
+
+#token-image {
+  height: 75px;
+  width: 75px;
+  background: rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+
+#token-image.loaded {
+  opacity: 1;
+}
+
+.btn-icon {
+  height: 1rem;
+  margin-right: 0.2rem;
+}
+
+.hr-balance {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.token-price:not(.flash) {
+  animation: none;
+}
+
+#token-show .swv-dark {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+/** Slider **/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 1rem;
+  margin-top: 0.25rem;
+}
+
+.switch[type=radio] {
+	padding: 0.5rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1rem;
+  width: 1rem;
+  left: 0px;
+  bottom: 0;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--bs-primary);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--bs-primary);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+									 supported by Chrome, Edge, Opera and Firefox */
+}
+
+input[disabled],
+.disabled {
+  cursor: not-allowed;
+}
+
+.alert.alert-warning {
+  background: rgb(255 255 0 / 20%);
+  border: 1px solid yellow;
+  color: white;
+}
+
+.alert.alert-danger {
+  background: rgb(255 0 0 / 20%);
+  border: 1px solid red;
+  color: white;
+}
+
+.alert.alert-info {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+.flash {
+  animation-duration: 0.5s;
+  animation-iteration-count: 2;
+}
+
+.flash.green {
+  animation-name: flashGreen;
+}
+
+.flash.red {
+  animation-name: flashRed;
+}
+
+@keyframes flashGreen {
+  0% {
+    color: white;
+  }
+  50% {
+    color: green;
+  }
+  100% {
+    color: white;
+  }
+}
+
+@keyframes flashRed {
+  0% {
+    color: white;
+  }
+  50% {
+    color: darkred;
+  }
+  100% {
+    color: white;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* The container */
+.check-container {
+  display: flex;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  align-items: center;
+}
+
+/* Hide the browser's default radio button */
+.check-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  /*top: 0;*/
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #ffffff69;
+  background-color: var(--bs-dark);
+  border-radius: 50%;
+  transition: all 0.3s linear;
+}
+
+.checkmark:active {
+  transform: scale(0.8);
+}
+
+/* On mouse-over, add a grey background color */
+.check-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.check-container input:checked ~ .checkmark {
+  background-color: var(--bs-primary);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.check-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.check-container .checkmark:after {
+  top: 4px;
+  left: 4px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: white;
+}
+
+.br-0 {
+  border-radius: 0;
+}
+
+.check-container .checkmark.br-0:after {
+  border-radius: 0;
+}
+
+.dropdown-menu {
+  background: black;
+  border: 1px solid white;
+  color: white;
+  padding: 0;
+}
+
+.dropdown-menu .nav-item {
+  transition: all 0.1s linear;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dropdown-menu .nav-item.router-link-active {
+  text-decoration: none;
+}
+
+.dropdown-menu .nav-item.router-link-active .nav-link {
+  color: white;
+}
+
+.dropdown-menu .nav-item.disabled .nav-link {
+  color: darkgray;
+}
+
+.dropdown-menu .nav-item:hover:not(.disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-menu .nav-item:hover:not(.disabled) .nav-link {
+  color: white;
+}
+
+.small code {
+  font-size: 0.875rem;
+}
+
+/*Trade View*/
+
+.buy {
+  color: green;
+}
+
+.sell {
+  color: red;
+}
+
+/* bridge perfectui */
+
+.dark .btn-white {
+  color: white !important;
+  transition: none !important;
+  box-shadow: none !important;
+}

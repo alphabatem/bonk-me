@@ -1,0 +1,105 @@
+<template>
+  <span>
+    <a target="_blank" :href="link()" @click="onClick" class="w-full overflow-anywhere">
+	{{ shortAddress }}
+    </a>
+    <i
+		v-if="!copyLoading"
+		@click="copy"
+		class="copy bi-copy ml-2 text-secondary cursor-pointer"
+	></i>
+    <i
+		v-if="copyLoading"
+		class="bi-check-circle-fill ml-2 text-secondary text-success"
+	></i>
+  </span>
+</template>
+
+<script>
+export default {
+	name: "AccountAddress",
+	props: {
+		address: {
+			required: true,
+		},
+		full: {
+			type: Boolean,
+		},
+		names: {
+			type: Boolean,
+			default() {
+				return true;
+			},
+		},
+		token: {
+			type: Boolean,
+			default() {
+				return false;
+			},
+		},
+		fallbackName: {
+			type: String,
+		}
+	},
+	data() {
+		return {
+			copyLoading: false,
+		};
+	},
+	computed: {
+		shortAddress: function () {
+			if (this.full) return this.address.toString();
+
+			if (!this.address) return "";
+
+			const stra = this.address.toString();
+
+			if (this.names) {
+				if (this.$store.state.wallet.address === stra) return "Me";
+
+				const nMap = this.$store.state.cache.nameMap[stra];
+				if (nMap) return nMap.name;
+
+				const tMap = this.$store.state.cache.tokenMap[stra];
+				if (tMap) return tMap.name;
+
+				const cMap = this.$store.state.cache.collectionMap[stra];
+				if (cMap) return cMap.name;
+
+				if (this.fallbackName)
+					return this.fallbackName
+			}
+
+			return `${stra.substr(0, 4)}...${stra.substr(-4)}`;
+		},
+	},
+	methods: {
+		async copy() {
+			this.copyLoading = true;
+			await navigator.clipboard.writeText(this.address);
+			setTimeout(() => {
+				this.copyLoading = false;
+			}, 1000);
+		},
+		onClick: function (e) {
+			e.stopPropagation();
+		},
+		link: function () {
+			if (!this.address)
+				return ""
+
+			return `${this.$store.state.settings.explorer}/account/${this.address}?${this.$store.getters["settings/clusterQuery"]}`
+		}
+	}
+}
+</script>
+
+<style scoped>
+.text-theme a,
+.text-theme .copy {
+	color: rgb(var(--theme500)) !important;
+}
+.overflow-anywhere{
+	overflow-wrap: anywhere;
+}
+</style>
