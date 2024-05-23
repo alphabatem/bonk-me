@@ -167,6 +167,10 @@ export default {
 				this.completeBonk(sig).finally(() => {
 					this.loading = false
 				})
+			}).catch(e => {
+				console.error("Failed to sign", e)
+				this.$toastr.e(e, "Failed to sign")
+				this.loading = false
 			})
 		},
 
