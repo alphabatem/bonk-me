@@ -96,9 +96,9 @@ export default {
 		},
 		payCost: function() {
 			if(this.form.payMethod === "SOL")
-				return this.solCost
+				return this.solCost * this.form.hits
 			else
-				return this.bonkCost
+				return this.bonkCost * this.form.hits
 		}
 	},
 	methods: {
