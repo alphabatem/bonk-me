@@ -42,12 +42,6 @@ Vue.use(VueToastr, {
   defaultPosition: "toast-bottom-left",
 });
 
-router.afterEach((to, from) => {
-  Vue.nextTick(() => {
-    document.title = `FluxBeam` + (to.name ? ` | ${to.name}` : "");
-  });
-});
-
 new Vue({
   router,
   store,

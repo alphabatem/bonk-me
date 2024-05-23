@@ -19,8 +19,7 @@
 
 				<form class="form text-center" @submit="onBonk">
 					<input v-model="form.handle" class="form-control mb-3" placeholder="Enter X handle">
-
-					<button :disabled="form.handle.length < 3" class="btn btn-primary" type="submit">Bonk Me Daddy</button>
+					<button :disabled="form.handle.length < 3" class="btn btn-primary" type="submit">Bonk Me Daddy ({{payCost}} {{form.payMethod}})</button>
 				</form>
 			</div>
 		</div>
@@ -35,6 +34,15 @@
 			</div>
 		</div>
 
+		<footer class="mt-5">
+			<a href="https://jup.ag/swap/SOL-Bonk" target="_blank">BUY BONK</a>
+
+			<div class="pay-method float-end text-start">
+				<span class="small me-2">Pay In:</span>
+				<button @click="togglePayMethod" :class="{'active': form.payMethod === 'BONK'}" class="btn btn-toggle btn-sm small p-1 py-0">BONK</button>
+				<button @click="togglePayMethod" :class="{'active': form.payMethod === 'SOL'}" class="btn btn-toggle btn-sm small p-1 py-0">SOL</button>
+			</div>
+		</footer>
 	</section>
 </template>
 
@@ -42,6 +50,7 @@
 
 import SignatureLoader from "@/mixins/SignatureLoader";
 import {web3} from "@project-serum/anchor";
+import {createTransferCheckedInstruction, getAssociatedTokenAddressSync, TOKEN_PROGRAM_ID} from "@solana/spl-token";
 
 export default {
 	name: "HomeView",
@@ -49,12 +58,22 @@ export default {
 	data() {
 		return {
 			form: {
-				amount: 0,
 				handle: "",
+				payMethod: 'BONK'
 			},
 			loading: false,
 			result: null,
+			bonkCost: 1_000,
+			solCost: 0.02
 		};
+	},
+	computed: {
+		payCost: function() {
+			if(this.form.payMethod === "SOL")
+				return this.solCost
+			else
+				return this.bonkCost
+		}
 	},
 	methods: {
 		reset: function () {
@@ -62,36 +81,67 @@ export default {
 			this.result = {}
 		},
 
+		togglePayMethod: async function (e) {
+			e.preventDefault()
+			if(this.form.payMethod === "SOL")
+				this.form.payMethod = "BONK"
+			else
+				this.form.payMethod = "SOL"
+		},
+
 		onBonk: async function (e) {
 			e.preventDefault()
 			this.loading = true
 
-			this.$toastr.s("Fetching Profile", `Finding ${this.form.handle}...`)
+			this.$toastr.s(`Finding ${this.form.handle}...`)
 
 			const src = new web3.PublicKey(this.$store.state.wallet.address)
 			const dst = new web3.PublicKey("2wci94quHBAAVt1HC4T5SUerZR7699LMb8Ueh3CSVpTX") //Cloakd.sol
+
 
 
 			console.log(`${src} -> ${dst}`)
 
 			//Build Txn
 			const txn = new web3.Transaction();
-			txn.add(web3.SystemProgram.transfer({
-				fromPubkey: src,
-				toPubkey: dst,
-				lamports: this.form.amount * Math.pow(10, 9),
-			}))
+
+			if (this.form.payMethod === "SOL") {
+				const amount = this.solCost * Math.pow(10,9)
+
+				txn.add(web3.SystemProgram.transfer({
+					fromPubkey: src,
+					toPubkey: dst,
+					lamports: amount * Math.pow(10, 9),
+				}))
+			} else {
+				const amount = this.bonkCost * Math.pow(10,5)
+
+				const mint = new web3.PublicKey("DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263")
+				const srcAta = getAssociatedTokenAddressSync(mint, src, false, TOKEN_PROGRAM_ID)
+				const dstAta = getAssociatedTokenAddressSync(mint, dst, false, TOKEN_PROGRAM_ID)
+
+				txn.add(createTransferCheckedInstruction(
+					srcAta, //Src Ata
+					mint, //Mint
+					dstAta,
+					src,
+					amount,
+					5,
+					[],
+					TOKEN_PROGRAM_ID
+				))
+			}
 
 			const sig = await this.signAndSendTransaction(txn, "bonk_me", [])
 
-			this.$toastr.s("Building BONK", `Bonking ${this.form.handle}...`)
+			this.$toastr.s(`Bonking ${this.form.handle}...`)
 
 			await this.$store.state.solana.client.confirmTransaction(
 				sig,
 				"confirmed"
 			);
 
-			this.$toastr.s(sig, `Successfully Bonked ${this.form.handle}...`)
+			this.$toastr.s(`Successfully Bonked ${this.form.handle}...`)
 			this.result = {
 				sig: sig
 			}
@@ -121,4 +171,5 @@ a {
 	border-radius: 14px;
 	border: 3px solid white;
 }
+
 </style>

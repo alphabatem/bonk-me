@@ -1,6 +1,6 @@
 export default {
 	namespaced: true,
-	state: () => (localStorage.getItem("fluxbeam:v1:settings") ? JSON.parse(localStorage.getItem("fluxbeam:v1:settings")) : {
+	state: () => (localStorage.getItem("bonkMe:v1:settings") ? JSON.parse(localStorage.getItem("bonkMe:v1:settings")) : {
 		explorer: "https://solana.fm",
 		customRpcUrl: "",
 		slippage: 5,
@@ -16,11 +16,11 @@ export default {
 			for (let i = 0; i < ok.length; i++)
 				state[ok[i]] = settings[ok[i]]
 
-			localStorage.setItem("fluxbeam:v1:settings", JSON.stringify(state))
+			localStorage.setItem("bonkMe:v1:settings", JSON.stringify(state))
 		},
 		setPriorityLevel(state, level) {
 			state.priorityLevel = level
-			localStorage.setItem("fluxbeam:v1:settings", JSON.stringify(state))
+			localStorage.setItem("bonkMe:v1:settings", JSON.stringify(state))
 		}
 	},
 	getters: {

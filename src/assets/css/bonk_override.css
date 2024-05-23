@@ -63,7 +63,7 @@ input.form-control::placeholder {
 	border-color: gray;
 }
 
-.btn-primary {
+.btn-primary, .btn-white {
 	background: rgb(255, 91, 1);
 	color: white;
 	border: 3px solid white;
@@ -91,4 +91,17 @@ input.form-control::placeholder {
 .card {
 	border: 3px solid white;
 	background: #0000 linear-gradient(180deg,#ff5c01 0,#fc8e03) 0 0 no-repeat padding-box;
+}
+
+.btn.btn-toggle {
+	border: 1px solid white;
+	border-radius: 0;
+	color: darkgray;
+	background: grey;
+}
+
+.btn.btn-toggle.active {
+	border: 1px solid white;
+	color: white;
+	background: rgb(255, 91, 1);
 }

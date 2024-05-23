@@ -32,7 +32,7 @@ export default {
 	},
 	data() {
 		return {
-			loading: true,
+			loading: false,
 			loadingWhat: "",
 
 			li: 0,
@@ -42,39 +42,8 @@ export default {
 		}
 	},
 	methods: {
-		startLoading: function() {
-			this.loadingWhat = "Loading Site"
-			this.loadingInterval = setInterval(() => {
-				const arr = [
-					"Fetching Tokens",
-					"Fetching Pools",
-					"Checking Liquidity",
-					"Optimizing Routes",
-				]
-				const lx = this.li
-				this.loadingWhat = arr[lx] || ""
-				if (this.li <= arr.length)
-					this.li++
-			}, 1600)
-		},
-		getPreviewTokens: async function () {
-			this.startLoading()
-
-			this.$store.state.solana.fluxClient.getPoolTokensIndexPage(0, 250).then(r => {
-				this.$store.commit('cache/set_token_list', r)
-			}).catch(e => {
-				console.error(e)
-				this.$toastr.e("Unable to load token list")
-			}).finally(() => {
-				this.loading = false
-				clearInterval(this.loadingInterval)
-			})
-		},
 	},
 	mounted() {
-		// this.getPoolMatrix()
-		this.getPreviewTokens()
-		// this.getAllTokens()
 	},
 }
 </script>

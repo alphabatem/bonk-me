@@ -1,12 +1,7 @@
 <template>
 	<section id="settings" class="container">
-		<div class="row mt-5">
-			<div class="col"><h1>Settings</h1></div>
-			<div class="col-auto">
-				<button @click="() => $router.back()" class="btn btn-white mb-2">
-					Back
-				</button>
-			</div>
+		<div class="row">
+			<div class="col"><h2>Settings</h2></div>
 		</div>
 
 		<form @submit="updateSettings">
@@ -48,51 +43,6 @@
 						placeholder="Default"
 						@change="updateSettings"
 					/>
-				</div>
-			</div>
-
-			<div
-				class="card animate__animated animate__fadeIn py-3 mb-3 animate__delay-600ms"
-			>
-				<div class="card-header">
-					<h6>Slippage %</h6>
-					<i class="small"
-					>The maximum difference between the expected price of an order and
-						the price when the order actually executes.</i
-					>
-				</div>
-				<div class="card-body field-group">
-					<input
-						v-model.number="form.slippage"
-						type="number"
-						inputmode="decimal"
-						min="0"
-						max="100"
-						step="0.1"
-						placeholder="5.0"
-						class="input"
-						@change="updateSettings"
-					/>
-				</div>
-			</div>
-
-			<div class="card animate__animated animate__fadeIn py-3 mb-3 animate__delay-900ms">
-				<div class="card-header">
-					<h6>Bandwidth Markets
-						<sup class="badge badge-solid-primary ml-2">Beta</sup>
-					</h6>
-					<i class="small"
-					>Use priority delivery lanes (SWQoS) to accelerate transaction delivery.</i>
-				</div>
-				<div class="card-body">
-					<label
-					><input
-						@change="updateSettings"
-						v-model="form.bandwidthMarkets"
-						type="checkbox"
-						class="switch align-middle mr-2"
-					/>{{form.bandwidthMarkets ? 'Enabled' : 'Disabled'}}</label
-					>
 				</div>
 			</div>
 
@@ -321,41 +271,6 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="card animate__animated animate__fadeIn py-3 mb-3">
-				<div class="card-header">
-					<h6>Validator Tip <sup>(SOL)</sup></h6>
-					<i class="small"
-					>Pay an additional tip to the validator to speed up transaction
-						delivery. (When using high tips, priority fees are not needed)</i
-					>
-				</div>
-				<div class="card-body field-group">
-					<div class="input-group input">
-						<input
-							@change="updateSettings"
-							v-model.number="form.validatorTip"
-							class="input"
-							placeholder="Delivery Tip (SOL)"
-							type="number"
-							min="0"
-							max="2"
-							step="1"
-						/>
-						<button class="btn btn-link-warn" @click="clearValidatorTip">
-							Clear
-						</button>
-					</div>
-				</div>
-			</div>
-
-			<!--				<div class="form-group mt-4">-->
-			<!--					<label>Degeneracy</label>-->
-			<!--					<select v-model="form.degenModeLevel" class="form-control">-->
-			<!--						<option value="whale">🐋 Whale</option>-->
-			<!--						<option value="shrimp">🦐 Shrimp</option>-->
-			<!--					</select>-->
-			<!--				</div>-->
 
 			<div class="card animate__animated animate__fadeIn">
 				<div class="card-footer text-end">
