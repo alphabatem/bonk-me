@@ -106,6 +106,7 @@ export default {
 			this.loading = false
 			this.result = null
 			this.form.target = ""
+			this.targetpfp = ""
 		},
 
 		togglePayMethod: async function (e) {
