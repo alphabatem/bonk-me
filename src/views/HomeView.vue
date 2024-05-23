@@ -16,7 +16,7 @@
 						<h5 class="my-5">Connect wallet to start bonking.</h5>
 					</div>
 				</div>
-				<div class="card" v-if="loading">
+				<div class="card" v-else-if="loading">
 					<div class="card-body px-5">
 						<h5 class="my-5">Generating Result...</h5>
 					</div>
