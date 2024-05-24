@@ -2,10 +2,11 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark gradient-primary pt-0 z-[1]">
     <div class="container-fluid px-0 bonk-bar">
       <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav">
           <li class="bonk-item d-flex align-items-center" v-for="(row, key) in rows" :key="key">
             <router-link class="small nav-link py-0" :to="`/bonks/${row.id}`" aria-label="Settings">
-							<span class="small">@{{row.target}} WAS BONKED {{row.hits}} TIMES!</span>
+							<p class="mb-0">@{{row.target}}</p>
+							<p class="xsmall mb-0">GOT BONKED!</p>
 						</router-link>
           </li>
         </ul>
