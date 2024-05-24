@@ -4,6 +4,7 @@
 			<img alt="" class="pfp m-1 " v-if="image" :src="image">
 			<div class=""><a target="_blank" :href="`https://x.com/${row.target}`">@{{ row.target }}</a></div>
 		</td>
+		<td class="text-end">{{ row.count }}</td>
 		<td class="text-end">{{ row.hitCount }}</td>
 	</tr>
 </template>

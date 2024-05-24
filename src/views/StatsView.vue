@@ -30,6 +30,7 @@
 							<tr>
 								<th>Target</th>
 								<th class="text-end">Times Bonked</th>
+								<th class="text-end">Times Hit</th>
 							</tr>
 							</thead>
 							<tbody>
