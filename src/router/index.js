@@ -15,14 +15,24 @@ const routes = [
 				component: () => import(/* webpackChunkName: "home" */ '../views/HomeView.vue')
 			},
 			{
+				path: '/bonks/:id',
+				name: 'Bonks',
+				component: () => import(/* webpackChunkName: "bonk" */ '../views/BonkView.vue')
+			},
+			{
 				path: 'stats',
 				name: 'Stats',
 				component: () => import(/* webpackChunkName: "settings" */ '../views/StatsView.vue')
 			},
 			{
+				path: 'latest',
+				name: 'Latest',
+				component: () => import(/* webpackChunkName: "latest" */ '../views/LatestView.vue')
+			},
+			{
 				path: '/auth/login',
 				name: 'Login',
-				component: () => import(/* webpackChunkName: "home" */ '../views/auth/Login.vue')
+				component: () => import(/* webpackChunkName: "auth" */ '../views/auth/Login.vue')
 			},
 		]
 	},

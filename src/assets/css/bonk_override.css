@@ -79,6 +79,11 @@ input.form-control::placeholder {
 	border-color: gray;
 }
 
+.bonk-bar {
+	background: rgb(255, 91, 1);
+	border-bottom: 2px solid white;
+}
+
 .btn-primary, .btn-white {
 	background: rgb(255, 91, 1);
 	color: white;

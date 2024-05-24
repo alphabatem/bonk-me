@@ -26,8 +26,17 @@
           <li class="nav-item d-flex align-items-center">
             <router-link
               class="nav-link"
+              to="/latest"
+              aria-label="Latest"
+              ><i class="fa fa-rss nav-icon me-1"></i
+              ><span>LATEST</span></router-link
+            >
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <router-link
+              class="nav-link"
               to="/stats"
-              aria-label="Settings"
+              aria-label="Leaderboard"
               ><i class="fa fa-crown nav-icon me-1"></i
               ><span>LEADERBOARD</span></router-link
             >

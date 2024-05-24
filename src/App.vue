@@ -1,5 +1,6 @@
 <template>
 	<div id="app" class="mb-2">
+		<BonkBar></BonkBar>
 		<Navbar></Navbar>
 		<div v-if="this.$store.state.settings.customRpcUrl.indexOf('devnet') > -1" class="w-100 mb-0 alert alert-warning p-0 warning">Devnet Mode</div>
 		<router-view class="view"></router-view>
@@ -12,10 +13,11 @@
 
 import Navbar from "@/components/Navbar.vue";
 import Loader from "@/components/common/Loader.vue";
+import BonkBar from "@/components/BonkBar.vue";
 
 export default {
 	name: 'App',
-	components: {Loader, Navbar},
+	components: {BonkBar, Loader, Navbar},
 	computed: {
 		isBot: function() {
 			return this.$route.path.indexOf("/bot") > -1
