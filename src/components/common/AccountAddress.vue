@@ -57,15 +57,6 @@ export default {
 			if (this.names) {
 				if (this.$store.state.wallet.address === stra) return "Me";
 
-				const nMap = this.$store.state.cache.nameMap[stra];
-				if (nMap) return nMap.name;
-
-				const tMap = this.$store.state.cache.tokenMap[stra];
-				if (tMap) return tMap.name;
-
-				const cMap = this.$store.state.cache.collectionMap[stra];
-				if (cMap) return cMap.name;
-
 				if (this.fallbackName)
 					return this.fallbackName
 			}

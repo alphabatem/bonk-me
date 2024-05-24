@@ -26,6 +26,15 @@
           <li class="nav-item d-flex align-items-center">
             <router-link
               class="nav-link"
+              to="/stats"
+              aria-label="Settings"
+              ><i class="fa fa-crown nav-icon me-1"></i
+              ><span>LEADERBOARD</span></router-link
+            >
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <router-link
+              class="nav-link"
               to="/app/settings"
               aria-label="Settings"
               ><i class="fa fa-cog nav-icon me-1"></i

@@ -15,6 +15,11 @@ const routes = [
 				component: () => import(/* webpackChunkName: "home" */ '../views/HomeView.vue')
 			},
 			{
+				path: 'stats',
+				name: 'Stats',
+				component: () => import(/* webpackChunkName: "settings" */ '../views/StatsView.vue')
+			},
+			{
 				path: '/auth/login',
 				name: 'Login',
 				component: () => import(/* webpackChunkName: "home" */ '../views/auth/Login.vue')
@@ -30,11 +35,6 @@ const routes = [
 				path: 'settings',
 				name: 'Settings',
 				component: () => import(/* webpackChunkName: "settings" */ '../views/SettingView.vue')
-			},
-			{
-				path: 'bonk',
-				name: 'Bonk',
-				component: () => import(/* webpackChunkName: "settings" */ '../views/BonkView.vue')
 			},
 		]
 	},
